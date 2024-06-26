@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { evaluate } from 'mathjs';
 import './Calculator.css';
 
 const Calculator = () => {
@@ -16,7 +17,7 @@ const Calculator = () => {
 
   const handleCalculate = () => {
     try {
-      setResult(eval(input));  // Note: Using eval is generally not safe for production code
+      setResult(evaluate(input));  // Using mathjs to safely evaluate the input
     } catch {
       setResult('Error');
     }
